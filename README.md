@@ -1,53 +1,77 @@
 # LuxeWheels
 
-A premium full-stack e-commerce platform designed for browsing, buying, and renting luxury pre-owned cars. LuxeWheels provides a seamless user experience backed by a robust RESTful API and a modern React frontend.
+A full-stack web application skeleton featuring a React frontend and an Express/MongoDB backend with JWT-based user authentication.
+
+## Overview
+
+LuxeWheels serves as a foundational boilerplate for a web application. It implements a decoupled client-server architecture, providing a user authentication flow utilizing JSON Web Tokens (JWT) and hashed passwords. 
 
 ## Features
 
-- **User Authentication**: Secure JWT-based authentication and authorization for user sessions.
-- **Administrative Dashboard**: A dedicated interface for administrators.
-- **Responsive Design**: Optimized for both desktop and mobile viewing experiences.
+- **User Registration and Login**: User authentication flow with password hashing and JWT-based authorization.
+- **JWT Authorization**: Session management using JSON Web Tokens.
+- **RESTful API**: Express-based backend API handling user data.
 
 ## Tech Stack
 
-LuxeWheels is built using the **MERN** stack:
+### Frontend
+- React 19
+- Vite
+- React Router DOM
+- Axios
 
 ### Backend
-- **Node.js & Express**: High-performance REST API routing.
-- **MongoDB & Mongoose**: Flexible NoSQL database and schema modeling.
-- **JWT & bcryptjs**: Security and password hashing.
+- Node.js
+- Express
 
-### Frontend
-- **React 19 (Vite)**: Modern, fast frontend framework.
-- **React Router**: Client-side routing.
-- **Axios**: HTTP client for API communication.
+### Database
+- MongoDB
+- Mongoose
+
+### Authentication / Security
+- JSON Web Tokens (JWT)
+- bcryptjs
+- CORS
+
+### Development Tools
+- Nodemon
+- ESLint
+
+## Architecture
+
+Frontend (React) &rarr; REST API (Axios) &rarr; Backend (Express) &rarr; Database (MongoDB)
 
 ## Project Structure
 
-The repository is divided into two main environments:
-
-- `/backend/`: Contains the Express server, Mongoose models, controllers, middleware, and routing logic.
-- `/frontend/LuxeWheels/`: Contains the Vite/React application, UI components, pages, and API service handlers.
+- `backend/`
+  - `controllers/` — Request handling logic.
+  - `middlewares/` — Validation and authentication middleware.
+  - `model/` — Mongoose schemas and database connection.
+  - `routes/` — Express API route definitions.
+- `frontend/LuxeWheels/`
+  - `src/`
+    - `pages/` — React views (Home, Login, Register, Admin).
 
 ## Getting Started
 
-### Prerequisites
-- Node.js (v18+)
-- MongoDB (Local or Atlas)
-
-### Environment Variables
-Create a `.env` file in the `/backend/` directory with the following variables:
-```env
-JWT_SECRET=your_jwt_secret_key
-PORT=5000
-```
-
-*Note: The MongoDB connection string is currently hardcoded in `backend/model/db.js` as `mongodb://localhost:27017/LuxeWheels`. Ensure you have a local MongoDB instance running on this default port.*
-
-### Running the Backend
+### Backend Setup
 1. Navigate to the backend directory:
    ```bash
    cd backend
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the backend server:
+   ```bash
+   npm run dev
+   ```
+
+### Frontend Setup
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend/LuxeWheels
    ```
 2. Install dependencies:
    ```bash
@@ -58,20 +82,23 @@ PORT=5000
    npm run dev
    ```
 
-### Running the Frontend
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend/LuxeWheels
-   ```
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the Vite development server:
-   ```bash
-   npm run dev
-   ```
+## Configuration
 
-## Screenshots
+The backend server utilizes a `.env` file for configuration. Create a `.env` file in the `backend/` directory:
 
-*(Developers: Add high-quality screenshots of the platform here to demonstrate the UI/UX)*
+```env
+PORT=3003
+JWT_SECRET=your_secret_key
+```
+
+*Note: The MongoDB connection string is currently hardcoded in `backend/model/db.js` (`mongodb://localhost:27017/LuxeWheels`). It does not currently use an environment variable.*
+
+## Development
+
+- Backend development server (with Nodemon): `npm run dev`
+- Frontend development server (Vite): `npm run dev`
+
+## Notes
+
+- **Implementation Status**: The application currently focuses solely on user authentication (Login/Register). Extended e-commerce features (such as browsing, buying, or renting vehicles) are not yet implemented.
+- **Database Configuration**: Ensure you have a local MongoDB instance running on port `27017` before starting the backend, due to the hardcoded connection string.
