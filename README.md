@@ -5,8 +5,7 @@ A premium full-stack e-commerce platform designed for browsing, buying, and rent
 ## Features
 
 - **User Authentication**: Secure JWT-based authentication and authorization for user sessions.
-- **Product Management**: Browse detailed listings of luxury vehicles.
-- **Administrative Dashboard**: A dedicated interface for administrators to manage inventory and user data.
+- **Administrative Dashboard**: A dedicated interface for administrators.
 - **Responsive Design**: Optimized for both desktop and mobile viewing experiences.
 
 ## Tech Stack
@@ -39,10 +38,11 @@ The repository is divided into two main environments:
 ### Environment Variables
 Create a `.env` file in the `/backend/` directory with the following variables:
 ```env
-MONGO_URL=your_mongodb_connection_string
 JWT_SECRET=your_jwt_secret_key
 PORT=5000
 ```
+
+*Note: The MongoDB connection string is currently hardcoded in `backend/model/db.js` as `mongodb://localhost:27017/LuxeWheels`. Ensure you have a local MongoDB instance running on this default port.*
 
 ### Running the Backend
 1. Navigate to the backend directory:
